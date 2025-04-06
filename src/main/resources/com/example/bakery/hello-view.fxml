@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="738.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutX="187.0" layoutY="58.0" prefHeight="158.0" prefWidth="392.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="158.0" prefWidth="391.0" styleClass="Poppins" text="MAMA URS BAKESHOP">
+               <font>
+                  <Font name="Niagara Engraved" size="75.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutX="230.0" layoutY="255.0" prefHeight="148.0" prefWidth="300.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="290.0" text="USERNAME" />
+            <TextField prefHeight="25.0" prefWidth="260.0" />
+            <Label alignment="CENTER" prefHeight="25.0" prefWidth="279.0" text="PASSWORD" />
+            <PasswordField prefHeight="25.0" prefWidth="260.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="280.0" text="Sign up?" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="282.0" text="Forget Password?" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
