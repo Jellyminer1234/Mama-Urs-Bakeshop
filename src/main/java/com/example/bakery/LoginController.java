@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LoginController {
+
     @FXML
     private TextField usernameField;
 
@@ -22,7 +23,6 @@ public class LoginController {
 
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     @FXML
     protected void onLoginButtonClick(ActionEvent event) {
@@ -31,13 +31,9 @@ public class LoginController {
 
         if (validateLogin(username, password)) {
             try {
-                if (username.equals("admin")) {
-                    switchToEmployees(event);
-                } else {
-                    switchToCustomers(event);
-                }
+                loadScene(event, "OPTIONS.fxml"); // Redirect to the options screen
             } catch (IOException e) {
-                showError("Navigation Error", "Could not load the next screen.");
+                showError("Navigation Error", "Could not load the options screen.");
             }
         } else {
             showError("Login Failed", "Invalid username or password.");
@@ -45,41 +41,38 @@ public class LoginController {
     }
 
     @FXML
-    protected void onSignUpClick() {
-        // TODO: Implement sign up functionality
+    protected void onSignUpClick(ActionEvent event) {
+        // Sign Up logic will be implemented later
         showInfo("Sign Up", "Sign up functionality will be implemented soon.");
     }
 
     @FXML
-    protected void onForgotPasswordClick() {
-        // TODO: Implement password recovery
+    protected void onForgotPasswordClick(ActionEvent event) {
+        // Forgot password logic will be implemented later
         showInfo("Password Recovery", "Password recovery functionality will be implemented soon.");
     }
 
     private boolean validateLogin(String username, String password) {
-        // TODO: Implement proper authentication
+        // This is just an example. You can implement a real authentication mechanism.
         return !username.isEmpty() && !password.isEmpty() &&
-               (username.equals("admin") && password.equals("admin") ||
-                username.equals("customer") && password.equals("customer"));
+                ((username.equals("admin") && password.equals("admin")) ||
+                        (username.equals("customer") && password.equals("customer")));
     }
 
-    private void switchToEmployees(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("EMPLOYEES.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    private void loadScene(ActionEvent event, String fxmlFile) throws IOException {
+        // Load the specified FXML file (for example, the OPTIONS.fxml screen)
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+        Parent root = loader.load();
 
-    private void switchToCustomers(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("CUSTOMERS.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        // Get the current stage and set the new scene
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
     private void showError(String title, String content) {
+        // Show an error alert with the given title and content
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -88,6 +81,7 @@ public class LoginController {
     }
 
     private void showInfo(String title, String content) {
+        // Show an info alert with the given title and content
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);

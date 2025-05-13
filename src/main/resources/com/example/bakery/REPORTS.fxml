@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakery.REPORTS">
+    <children>
+        <VBox alignment="TOP_CENTER" spacing="15.0" layoutX="30.0" layoutY="20.0" prefWidth="540.0">
+            <!-- Title -->
+            <HBox alignment="CENTER">
+                <Label text="SALES REPORT">
+                    <font>
+                        <Font size="26.0" />
+                    </font>
+                </Label>
+            </HBox>
 
+            <!-- Report display area -->
+            <TextArea fx:id="reportTextArea" prefHeight="200.0" prefWidth="500.0" editable="false" wrapText="true"
+                      text="Date&#9;&#9;Total Sales&#10;--------------------------&#10;May 1&#9;&#9;$1,250&#10;May 2&#9;&#9;$980&#10;May 3&#9;&#9;$1,430&#10;May 4&#9;&#9;$1,120&#10;May 5&#9;&#9;$1,300" />
+
+            <!-- Buttons section -->
+            <HBox spacing="15.0" alignment="CENTER">
+                <Button text="Generate" onAction="#handleGenerate" />
+                <Button text="Export" onAction="#handleExport" />
+                <Button text="Back" onAction="#handleBack" />
+            </HBox>
+        </VBox>
+    </children>
 </AnchorPane>

@@ -4,16 +4,34 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="820.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakery.EMPLOYEES">
+<AnchorPane prefHeight="400.0" prefWidth="820.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakery.EmployeesController">
    <children>
-      <Label layoutX="305.0" layoutY="37.0" text="LIST OF EMPLOYEES">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <TextArea layoutX="33.0" layoutY="92.0" prefHeight="240.0" prefWidth="755.0" text="Employee ID&#9;      Name&#9;Position&#9;                          Shift&#9;                           Email                                     Wages&#10;CW001&#9;         Alex Rivera&#9;Car Wash Attendant       Morning&#9;alex.rivera@carwash.com                      10$/hr&#10;CW002&#9;         Jamie Cruz&#9;Cashier&#9;                       Afternoon&#9; jamie.cruz@carwash.com                      12$/hr&#10;CW003&#9;          Leo Santos&#9;Detailer&#9;                        Full-Time&#9;  leo.santos@carwash.com                      16$/hr&#10;CW004&#9;         Carla Dizon&#9;Supervisor&#9;                 Morning           carla.dizon@carwash.com                    18$/hr&#10;CW005&#9;       Miguel Reyes&#9;Vacuum Specialist&#9;       Afternoon&#9;  miguel.reyes@carwash.com                  10$/hr&#10;CW006&#9;         Nina Flores&#9;Customer Service Rep&#9;Full-Time          nina.flores@carwash.com                      15$/hr&#10;CW007&#9;         Bryan Tan&#9;Pressure Washer Tech&#9;Morning&#9;            bryan.tan@carwash.com                      10$/hr&#10;CW008&#9;         Rose Lim&#9;Maintenance Staff&#9;        Night Shift&#9;       rose.lim@carwash.com                      16$/hr">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></TextArea>
+      <VBox spacing="15" layoutX="20" layoutY="20" prefWidth="780">
+         <!-- Title -->
+         <HBox alignment="CENTER">
+            <Label text="LIST OF EMPLOYEES">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </HBox>
+
+         <!-- TextArea inside ScrollPane -->
+         <ScrollPane fitToWidth="true" prefHeight="270">
+            <content>
+               <TextArea fx:id="employeeTextArea" editable="false" wrapText="false" prefWidth="755.0" prefHeight="240.0"
+                         text="Employee ID&#9;      Name&#9;Position&#9;                          Shift&#9;                           Email                                     Wages&#10;CW001&#9;         Alex Rivera&#9;Car Wash Attendant       Morning&#9;alex.rivera@carwash.com                      10$/hr&#10;CW002&#9;         Jamie Cruz&#9;Cashier&#9;                       Afternoon&#9; jamie.cruz@carwash.com                      12$/hr&#10;CW003&#9;          Leo Santos&#9;Detailer&#9;                        Full-Time&#9;  leo.santos@carwash.com                      16$/hr&#10;CW004&#9;         Carla Dizon&#9;Supervisor&#9;                 Morning           carla.dizon@carwash.com                    18$/hr&#10;CW005&#9;       Miguel Reyes&#9;Vacuum Specialist&#9;       Afternoon&#9;  miguel.reyes@carwash.com                  10$/hr&#10;CW006&#9;         Nina Flores&#9;Customer Service Rep&#9;Full-Time          nina.flores@carwash.com                      15$/hr&#10;CW007&#9;         Bryan Tan&#9;Pressure Washer Tech&#9;Morning&#9;            bryan.tan@carwash.com                      10$/hr&#10;CW008&#9;         Rose Lim&#9;Maintenance Staff&#9;        Night Shift&#9;       rose.lim@carwash.com                      16$/hr">
+                  <font>
+                     <Font name="System Bold" size="13.0" />
+                  </font>
+               </TextArea>
+            </content>
+         </ScrollPane>
+
+         <!-- Back Button -->
+         <HBox alignment="BOTTOM_RIGHT">
+            <Button text="Back" onAction="#handleBack"/>
+         </HBox>
+      </VBox>
    </children>
 </AnchorPane>

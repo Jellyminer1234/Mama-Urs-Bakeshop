@@ -6,22 +6,30 @@
 
 <AnchorPane prefHeight="469.0" prefWidth="669.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakery.Options">
    <children>
-      <Label alignment="CENTER" layoutX="253.0" prefHeight="105.0" prefWidth="189.0" text="OPTIONS">
-         <font>
-            <Font size="34.0" />
-         </font></Label>
-      <VBox layoutX="274.0" layoutY="115.0" prefHeight="171.0" prefWidth="146.0" spacing="10.0">
-         <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" lineSpacing="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="369.0" text="SALES" textAlignment="CENTER" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="345.0" text="STOCKS" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" text="SUPPLIERS" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="175.0" text="CUSTOMERS" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="341.0" text="ONLINE ORDERS" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="210.0" text="REPORTS" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="169.0" text="EMPLOYEES" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="215.0" text="LOGOUT" />
-            <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="389.0" text="BACK" />
-         </children>
+      <VBox alignment="CENTER" layoutX="135.0" layoutY="30.0" prefWidth="400.0" spacing="20.0">
+         <!-- Title Label -->
+         <HBox alignment="CENTER">
+            <Label text="OPTIONS">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+         </HBox>
+
+         <!-- Buttons Group -->
+         <VBox alignment="CENTER" spacing="10.0">
+            <Button onAction="#handleSales" prefWidth="250.0" text="SALES" />
+            <Button onAction="#handleStocks" prefWidth="250.0" text="STOCKS" />
+            <Button onAction="#handleSuppliers" prefWidth="250.0" text="SUPPLIERS" />
+            <Button onAction="#handleReports" prefWidth="250.0" text="REPORTS" />
+            <Button onAction="#handleEmployees" prefWidth="250.0" text="EMPLOYEES" />
+            <Button onAction="#handleLogout" prefWidth="250.0" text="LOGOUT" />
+         </VBox>
+
+         <!-- Back Button -->
+         <HBox alignment="CENTER">
+            <Button onAction="#handleBack" prefWidth="150.0" text="BACK" />
+         </HBox>
       </VBox>
    </children>
 </AnchorPane>

@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
+<AnchorPane prefHeight="478.0" prefWidth="605.0" style="-fx-background-color: beige;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.bakery.SALES">
+    <children>
+        <VBox layoutX="30.0" layoutY="20.0" spacing="20.0" prefWidth="545.0">
 
-<AnchorPane prefHeight="478.0" prefWidth="605.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakery.SALES">
-   <children>
-      <AreaChart layoutX="53.0" layoutY="14.0" prefHeight="176.0" prefWidth="497.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </AreaChart>
-   </children>
+            <!-- Title -->
+            <HBox alignment="CENTER">
+                <Label text="Sales Overview">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+            </HBox>
+
+            <!-- Area Chart -->
+            <AreaChart fx:id="salesChart" prefHeight="250.0" prefWidth="500.0" title="Daily Sales Chart">
+                <xAxis>
+                    <CategoryAxis label="Date" side="BOTTOM" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Amount ($)" side="LEFT" />
+                </yAxis>
+            </AreaChart>
+
+            <!-- Buttons -->
+            <HBox alignment="CENTER" spacing="20.0">
+                <Button text="Refresh" onAction="#handleRefresh"/>
+                <Button text="Export" onAction="#handleExport"/>
+                <Button text="Back" onAction="#handleBack"/>
+            </HBox>
+        </VBox>
+    </children>
 </AnchorPane>

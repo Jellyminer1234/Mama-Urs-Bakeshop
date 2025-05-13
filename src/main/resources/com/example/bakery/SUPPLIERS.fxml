@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: beige;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.bakery.SuppliersController">
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakery.SUPPLIERS">
+    <!-- VBox to stack elements vertically -->
+    <VBox spacing="20" alignment="CENTER" layoutX="150.0" layoutY="50.0">
 
+        <!-- Title Label -->
+        <Label text="Supplier Information" style="-fx-font-size: 20; -fx-font-weight: bold;" />
+
+        <!-- HBox for horizontal layout of form elements -->
+        <HBox spacing="10" alignment="CENTER">
+            <!-- TextFields with fx:id for controller -->
+            <TextField fx:id="supplierNameField" promptText="Enter Supplier Name" />
+            <TextField fx:id="supplierAddressField" promptText="Enter Supplier Address" />
+        </HBox>
+
+        <!-- Button to trigger supplier add action -->
+        <Button text="Add Supplier" onAction="#handleAddSupplier"
+                style="-fx-background-color: #8B4513; -fx-text-fill: white;" />
+    </VBox>
 </AnchorPane>

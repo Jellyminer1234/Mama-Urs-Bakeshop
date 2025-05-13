@@ -1,8 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
+<AnchorPane prefHeight="533.0" prefWidth="634.0" style="-fx-background-color: beige;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.bakery.Stocks">
+    <children>
+        <VBox alignment="TOP_CENTER" spacing="20.0" layoutX="20.0" layoutY="20.0" prefWidth="590.0">
 
-<AnchorPane prefHeight="533.0" prefWidth="634.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakery.STOCKS">
+            <!-- Title -->
+            <HBox alignment="CENTER">
+                <Label text="STOCK INVENTORY">
+                    <font>
+                        <Font size="26.0" />
+                    </font>
+                </Label>
+            </HBox>
 
+            <!-- Table for Stocks -->
+            <TableView fx:id="stockTable" prefHeight="350.0" prefWidth="580.0">
+                <columns>
+                    <TableColumn fx:id="itemColumn" text="Item Name" prefWidth="180"/>
+                    <TableColumn fx:id="quantityColumn" text="Quantity" prefWidth="100"/>
+                    <TableColumn fx:id="categoryColumn" text="Category" prefWidth="120"/>
+                    <TableColumn fx:id="dateColumn" text="Date Added" prefWidth="160"/>
+                </columns>
+            </TableView>
+
+            <!-- Action Buttons -->
+            <HBox spacing="15.0" alignment="CENTER">
+                <Button text="Add" onAction="#handleAdd" />
+                <Button text="Update" onAction="#handleUpdate" />
+                <Button text="Delete" onAction="#handleDelete" />
+                <Button text="Back" onAction="#handleBack" />
+            </HBox>
+        </VBox>
+    </children>
 </AnchorPane>
