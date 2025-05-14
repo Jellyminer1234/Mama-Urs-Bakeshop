@@ -4,7 +4,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="469.0" prefWidth="669.0" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bakery.Options">
+<AnchorPane prefHeight="469.0" prefWidth="669.0" style="-fx-background-color: beige;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.bakery.OptionsController">
    <children>
       <VBox alignment="CENTER" layoutX="135.0" layoutY="30.0" prefWidth="400.0" spacing="20.0">
          <!-- Title Label -->

@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class LoginController {
 
@@ -21,9 +22,6 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
-    private Stage stage;
-    private Scene scene;
-
     @FXML
     protected void onLoginButtonClick(ActionEvent event) {
         String username = usernameField.getText();
@@ -31,9 +29,22 @@ public class LoginController {
 
         if (validateLogin(username, password)) {
             try {
-                loadScene(event, "OPTIONS.fxml"); // Redirect to the options screen
+                // Load OPTIONS.fxml from the proper path
+                URL fxmlURL = getClass().getResource("/com/example/bakery/OPTIONS.fxml");
+                if (fxmlURL == null) {
+                    throw new IOException("FXML file not found at /com/example/bakery/OPTIONS.fxml");
+                }
+
+                FXMLLoader loader = new FXMLLoader(fxmlURL);
+                Parent root = loader.load();
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+
             } catch (IOException e) {
-                showError("Navigation Error", "Could not load the options screen.");
+                e.printStackTrace();
+                showError("Navigation Error", "Could not load the options screen.\n" + e.getMessage());
             }
         } else {
             showError("Login Failed", "Invalid username or password.");
@@ -42,37 +53,21 @@ public class LoginController {
 
     @FXML
     protected void onSignUpClick(ActionEvent event) {
-        // Sign Up logic will be implemented later
         showInfo("Sign Up", "Sign up functionality will be implemented soon.");
     }
 
     @FXML
     protected void onForgotPasswordClick(ActionEvent event) {
-        // Forgot password logic will be implemented later
         showInfo("Password Recovery", "Password recovery functionality will be implemented soon.");
     }
 
     private boolean validateLogin(String username, String password) {
-        // This is just an example. You can implement a real authentication mechanism.
         return !username.isEmpty() && !password.isEmpty() &&
                 ((username.equals("admin") && password.equals("admin")) ||
                         (username.equals("customer") && password.equals("customer")));
     }
 
-    private void loadScene(ActionEvent event, String fxmlFile) throws IOException {
-        // Load the specified FXML file (for example, the OPTIONS.fxml screen)
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-        Parent root = loader.load();
-
-        // Get the current stage and set the new scene
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     private void showError(String title, String content) {
-        // Show an error alert with the given title and content
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -81,7 +76,6 @@ public class LoginController {
     }
 
     private void showInfo(String title, String content) {
-        // Show an info alert with the given title and content
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
